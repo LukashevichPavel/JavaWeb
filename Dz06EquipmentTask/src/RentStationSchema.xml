@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://www.itacademy.by/rentstation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="RentStation">
+            <attribute name="xsi:schemaLocation"/>
+            <element name="clientBase">
+                <oneOrMore>
+                    <element name="client">
+                        <ref name="id"/>
+                        <element name="firstname">
+                            <data type="NCName"/>
+                        </element>
+                        <element name="lastname">
+                            <data type="NCName"/>
+                        </element>
+                        <element name="passport">
+                            <text/>
+                        </element>
+                        <element name="address">
+                            <text/>
+                        </element>
+                        <element name="telNumber">
+                            <text/>
+                        </element>
+                        <element name="takeEquipment">
+                            <optional>
+                                <ref name="Skis"/>
+                            </optional>
+                        </element>
+                        <element name="takeAcsessories">
+                            <empty/>
+                        </element>
+                    </element>
+                </oneOrMore>
+            </element>
+            <element name="equipmentBase">
+                <oneOrMore>
+                    <element name="Bike">
+                        <ref name="id"/>
+                        <ref name="category"/>
+                        <ref name="name"/>
+                        <ref name="isAvialible"/>
+                        <ref name="rentPrice"/>
+                        <ref name="lostPrice"/>
+                    </element>
+                </oneOrMore>
+                <oneOrMore>
+                    <element name="SnowBoard">
+                        <ref name="id"/>
+                        <ref name="category"/>
+                        <ref name="name"/>
+                        <ref name="isAvialible"/>
+                        <ref name="rentPrice"/>
+                        <ref name="lostPrice"/>
+                    </element>
+                </oneOrMore>
+                <oneOrMore>
+                    <ref name="Skis"/>
+                </oneOrMore>
+                <oneOrMore>
+                    <element name="Acsessories">
+                        <ref name="id"/>
+                        <ref name="category"/>
+                        <ref name="name"/>
+                        <ref name="isAvialible"/>
+                        <ref name="rentPrice"/>
+                        <ref name="lostPrice"/>
+                    </element>
+                </oneOrMore>
+            </element>
+            <element name="rentUnit">
+                <element name="equipment">
+                    <empty/>
+                </element>
+            </element>
+        </element>
+    </start>
+    <define name="id">
+        <element name="id">
+            <data type="integer"/>
+        </element>
+    </define>
+    <define name="Skis">
+        <element name="Skis">
+            <ref name="id"/>
+            <ref name="category"/>
+            <ref name="name"/>
+            <ref name="isAvialible"/>
+            <ref name="rentPrice"/>
+            <ref name="lostPrice"/>
+        </element>
+    </define>
+    <define name="category">
+        <element name="category">
+            <data type="NCName"/>
+        </element>
+    </define>
+    <define name="name">
+        <element name="name">
+            <data type="NCName"/>
+        </element>
+    </define>
+    <define name="isAvialible">
+        <element name="isAvialible">
+            <data type="boolean"/>
+        </element>
+    </define>
+    <define name="rentPrice">
+        <element name="rentPrice">
+            <data type="decimal"/>
+        </element>
+    </define>
+    <define name="lostPrice">
+        <element name="lostPrice">
+            <data type="decimal"/>
+        </element>
+    </define>
+</grammar>

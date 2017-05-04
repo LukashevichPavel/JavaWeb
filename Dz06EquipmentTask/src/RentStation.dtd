@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE RentStation [
+        <!ELEMENT RentStation (clientBase|equipmentBase|rentUnit)*>
+        <!ATTLIST RentStation
+                xmlns:xsi CDATA #REQUIRED
+                xmlns CDATA #REQUIRED
+                xsi:schemaLocation CDATA #REQUIRED>
+        <!ELEMENT clientBase (client)*>
+        <!ELEMENT client (id|firstname|lastname|passport|address|telNumber|takeEquipment|takeAcsessories)*>
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT firstname (#PCDATA)>
+        <!ELEMENT lastname (#PCDATA)>
+        <!ELEMENT passport (#PCDATA)>
+        <!ELEMENT address (#PCDATA)>
+        <!ELEMENT telNumber (#PCDATA)>
+        <!ELEMENT takeEquipment (Skis)*>
+        <!ELEMENT takeAcsessories (#PCDATA)>
+        <!ELEMENT Skis (id|category|name|isAvialible|rentPrice|lostPrice)*>
+        <!ELEMENT category (#PCDATA)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT isAvialible (#PCDATA)>
+        <!ELEMENT rentPrice (#PCDATA)>
+        <!ELEMENT lostPrice (#PCDATA)>
+        <!ELEMENT equipmentBase (Bike|SnowBoard|Skis|Acsessories)*>
+        <!ELEMENT Bike (id|category|name|isAvialible|rentPrice|lostPrice)*>
+        <!ELEMENT SnowBoard (id|category|name|isAvialible|rentPrice|lostPrice)*>
+        <!ELEMENT Acsessories (id|category|name|isAvialible|rentPrice|lostPrice)*>
+        <!ELEMENT rentUnit (equipment)*>
+        <!ELEMENT equipment (#PCDATA)>
+        ]>
